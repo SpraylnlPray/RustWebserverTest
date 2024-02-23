@@ -23,8 +23,10 @@ async fn run_server() {
         // get function create a MethodRouter for a `/` path from the `hello_world`
         get(hello_world))
 
-    // create a socket address from the string address
-    let addr = SocketAddr::from_str("0.0.0.0:8080").unwrap();
+    // read the port from env or use the port default port(8080)
+    let port = std::env::var("PORT").unwrap_or(String::from("8080"));
+    // convert the port to a socket address
+    let addr = SocketAddr::from_str(&format!("0.0.0.0:{}", port)).unwrap();
     // start the server on the address
     // Server is a re-export from the hyper::Server
     Server::bind(&addr)
