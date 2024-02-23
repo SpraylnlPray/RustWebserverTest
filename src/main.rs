@@ -11,7 +11,7 @@ async fn main() {
     let port = std::env::var("PORT").unwrap_or(String::from("8080"));
     // convert the port to a socket address
     let addr = SocketAddr::from_str(&format!("0.0.0.0:{}", port)).unwrap();
-    println!("{}", addr);
+    println!("Address: {}", addr);
 
     warp::serve(hello)
         .run(addr)
