@@ -35,7 +35,7 @@ jobs:
       run: mkdir app
     # put the app in it
     - name: copy
-      run: mv ./target/release/axum-deom ./app/axum
+      run: mv ./target/release/RustWebserverTest ./app/axum
 
 
     # heroku deployment
